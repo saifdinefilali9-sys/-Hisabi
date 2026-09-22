@@ -2,1077 +2,1834 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>حسابي</title>
 
 <style>
+
 *{
- box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
- margin:0;
- font-family:Arial,Tahoma,sans-serif;
- background:#f4f7fb;
- color:#172033;
+    margin:0;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#f4f7fb;
+    color:#172033;
 }
 
-header{
- background:#2563eb;
- color:white;
- padding:20px 16px;
- text-align:center;
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
 }
 
-header h1{
- margin:0 0 6px;
- font-size:28px;
+button{
+    cursor:pointer;
 }
 
-header p{
- margin:0;
- opacity:.9;
+.header{
+    background:#2563eb;
+    color:white;
+    padding:22px 16px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+}
+
+.header p{
+    margin:7px 0 0;
+    opacity:.9;
+    font-size:14px;
 }
 
 .container{
- max-width:900px;
- margin:auto;
- padding:15px;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:15px;
 }
 
-nav{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:8px;
- margin-bottom:15px;
+.nav{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    margin-bottom:15px;
 }
 
-nav button{
- border:0;
- background:white;
- border-radius:12px;
- padding:12px 6px;
- font-size:14px;
- cursor:pointer;
- box-shadow:0 2px 8px #00000012;
+.nav button{
+    border:0;
+    background:white;
+    border-radius:12px;
+    padding:12px 5px;
+    font-size:13px;
+    color:#374151;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
 }
 
-nav button.active{
- background:#2563eb;
- color:white;
+.nav button.active{
+    background:#2563eb;
+    color:white;
 }
 
 .section{
- display:none;
+    display:none;
 }
 
 .section.active{
- display:block;
+    display:block;
 }
 
 .card{
- background:white;
- border-radius:16px;
- padding:16px;
- margin-bottom:15px;
- box-shadow:0 2px 10px #00000010;
+    background:white;
+    border-radius:16px;
+    padding:17px;
+    margin-bottom:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
 }
 
 .card h2{
- margin-top:0;
+    margin:0 0 15px;
+    font-size:19px;
+}
+
+.card h3{
+    margin:0 0 10px;
 }
 
 .stats{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:10px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
 }
 
 .stat{
- padding:18px;
- border-radius:14px;
- background:#f8fafc;
+    padding:17px;
+    border-radius:14px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
 }
 
-.stat strong{
- display:block;
- font-size:22px;
- margin-top:8px;
+.stat-title{
+    color:#64748b;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.stat-value{
+    font-size:21px;
+    font-weight:bold;
 }
 
 .green{
- color:#16a34a;
+    color:#16a34a;
 }
 
 .red{
- color:#dc2626;
+    color:#dc2626;
 }
 
 .blue{
- color:#2563eb;
+    color:#2563eb;
+}
+
+.muted{
+    color:#64748b;
+}
+
+.form-group{
+    margin-bottom:13px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:bold;
 }
 
 input,
 select,
 textarea{
- width:100%;
- padding:12px;
- border:1px solid #d8dee9;
- border-radius:10px;
- font-size:15px;
- margin-bottom:10px;
- background:white;
+    width:100%;
+    border:1px solid #d7dde7;
+    border-radius:10px;
+    padding:12px;
+    font-size:15px;
+    background:white;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#2563eb;
 }
 
 textarea{
- min-height:90px;
- resize:vertical;
+    min-height:90px;
+    resize:vertical;
 }
 
-button{
- cursor:pointer;
+.direction{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.direction button{
+    padding:13px;
+    border:2px solid #e5e7eb;
+    border-radius:12px;
+    background:white;
+    font-size:14px;
+}
+
+.direction button.selected{
+    border-color:#2563eb;
+    background:#eff6ff;
+    color:#2563eb;
+    font-weight:bold;
 }
 
 .btn{
- width:100%;
- border:0;
- border-radius:10px;
- padding:13px;
- font-size:16px;
- margin-top:5px;
+    border:0;
+    border-radius:11px;
+    padding:12px 15px;
+    font-size:14px;
+    font-weight:bold;
 }
 
 .btn-primary{
- background:#2563eb;
- color:white;
+    background:#2563eb;
+    color:white;
 }
 
-.btn-green{
- background:#16a34a;
- color:white;
+.btn-success{
+    background:#16a34a;
+    color:white;
 }
 
-.btn-red{
- background:#dc2626;
- color:white;
+.btn-danger{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-secondary{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+.btn-full{
+    width:100%;
+}
+
+.btn-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
 .person{
- border:1px solid #e5e7eb;
- border-radius:13px;
- padding:14px;
- margin-bottom:10px;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:10px;
 }
 
-.person-head{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:10px;
+.person-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
 }
 
 .person-name{
- font-size:18px;
- font-weight:bold;
+    font-weight:bold;
+    font-size:17px;
 }
 
-.muted{
- color:#64748b;
- font-size:14px;
- margin-top:5px;
+.person-phone{
+    color:#64748b;
+    font-size:13px;
+    margin-top:4px;
 }
 
-.actions{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:8px;
- margin-top:10px;
-}
-
-.empty{
- text-align:center;
- padding:30px;
- color:#64748b;
+.balance{
+    font-weight:bold;
+    white-space:nowrap;
 }
 
 .badge{
- display:inline-block;
- padding:5px 9px;
- border-radius:20px;
- font-size:12px;
+    display:inline-block;
+    padding:5px 8px;
+    border-radius:8px;
+    font-size:12px;
+    margin-top:8px;
 }
 
 .badge-green{
- background:#dcfce7;
- color:#166534;
+    background:#dcfce7;
+    color:#15803d;
 }
 
 .badge-red{
- background:#fee2e2;
- color:#991b1b;
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.badge-gray{
+    background:#f1f5f9;
+    color:#475569;
 }
 
 .transaction{
- padding:12px 0;
- border-bottom:1px solid #eee;
+    border-right:4px solid #2563eb;
+    background:#f8fafc;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:9px;
 }
 
-.transaction:last-child{
- border-bottom:0;
+.transaction.debt{
+    border-right-color:#dc2626;
+}
+
+.transaction.payment{
+    border-right-color:#16a34a;
+}
+
+.transaction-title{
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.transaction-info{
+    font-size:13px;
+    color:#64748b;
+    line-height:1.7;
+}
+
+.empty{
+    text-align:center;
+    padding:30px 10px;
+    color:#94a3b8;
+}
+
+.profile-header{
+    background:#eff6ff;
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:15px;
+}
+
+.search{
+    margin-bottom:12px;
+}
+
+.small{
+    font-size:12px;
+}
+
+hr{
+    border:0;
+    border-top:1px solid #e5e7eb;
+    margin:15px 0;
 }
 
 @media(max-width:600px){
 
- nav{
-  grid-template-columns:repeat(2,1fr);
- }
+    .nav{
+        grid-template-columns:repeat(2,1fr);
+    }
 
- .stats{
-  grid-template-columns:1fr;
- }
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
 
- .actions{
-  grid-template-columns:1fr;
- }
+    .btn-row .btn{
+        flex:1;
+    }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
- <h1>💰 حسابي</h1>
- <p>إدارة الديون والحسابات بسهولة</p>
+<header class="header">
+    <h1>💰 حسابي</h1>
+    <p>إدارة الديون والمعاملات الشخصية بسهولة</p>
 </header>
 
 <div class="container">
 
-<nav>
- <button class="active" onclick="showSection('home',this)">🏠 الرئيسية</button>
- <button onclick="showSection('people',this)">👥 الأشخاص</button>
- <button onclick="showSection('addDebt',this)">➕ إضافة دين</button>
- <button onclick="showSection('transactions',this)">🔄 المعاملات</button>
-</nav>
+    <!-- NAVIGATION -->
+
+    <nav class="nav">
+
+        <button id="navHome"
+                class="active"
+                onclick="showSection('home')">
+            🏠 الرئيسية
+        </button>
+
+        <button id="navPeople"
+                onclick="showSection('people')">
+            👥 الأشخاص
+        </button>
+
+        <button id="navAdd"
+                onclick="showSection('add')">
+            ➕ إضافة دين
+        </button>
+
+        <button id="navTransactions"
+                onclick="showSection('transactions')">
+            🔄 المعاملات
+        </button>
+
+    </nav>
 
 
-<!-- الرئيسية -->
+    <!-- HOME -->
 
-<section id="home" class="section active">
+    <section id="home" class="section active">
 
- <div class="card">
+        <div class="card">
 
-  <h2>📊 الملخص</h2>
+            <h2>ملخص حسابي</h2>
 
-  <div class="stats">
+            <div class="stats">
 
-   <div class="stat">
-    💚 لي عند الناس
-    <strong id="totalOwed" class="green">0 دج</strong>
-   </div>
+                <div class="stat">
+                    <div class="stat-title">
+                        💚 لي عند الناس
+                    </div>
 
-   <div class="stat">
-    🔴 عليّ للناس
-    <strong id="totalDebt" class="red">0 دج</strong>
-   </div>
+                    <div id="homeOwed"
+                         class="stat-value green">
+                        0 دج
+                    </div>
+                </div>
 
-   <div class="stat">
-    👥 الأشخاص
-    <strong id="peopleCount" class="blue">0</strong>
-   </div>
+                <div class="stat">
+                    <div class="stat-title">
+                        🔴 عليّ للناس
+                    </div>
 
-   <div class="stat">
-    💰 الديون المفتوحة
-    <strong id="openDebts" class="blue">0</strong>
-   </div>
+                    <div id="homeDebt"
+                         class="stat-value red">
+                        0 دج
+                    </div>
+                </div>
 
-  </div>
+                <div class="stat">
+                    <div class="stat-title">
+                        👥 الأشخاص
+                    </div>
 
- </div>
+                    <div id="homePeople"
+                         class="stat-value blue">
+                        0
+                    </div>
+                </div>
 
- <div class="card">
+                <div class="stat">
+                    <div class="stat-title">
+                        🔄 المعاملات
+                    </div>
 
-  <h2>⏰ المواعيد القادمة</h2>
+                    <div id="homeTransactions"
+                         class="stat-value">
+                        0
+                    </div>
+                </div>
 
-  <div id="upcomingList"></div>
+            </div>
 
- </div>
-
-</section>
-
-
-<!-- الأشخاص -->
-
-<section id="people" class="section">
-
- <div class="card">
-
-  <h2>👥 الأشخاص</h2>
-
-  <input
-   id="personSearch"
-   placeholder="🔎 ابحث عن شخص..."
-   oninput="renderPeople()"
-  >
-
-  <div id="peopleList"></div>
-
- </div>
-
-</section>
+        </div>
 
 
-<!-- إضافة دين -->
+        <div class="card">
 
-<section id="addDebt" class="section">
+            <h2>📅 الاستحقاقات القادمة</h2>
 
- <div class="card">
+            <div id="upcomingList"></div>
 
-  <h2>➕ تسجيل دين جديد</h2>
+        </div>
 
-  <input
-   id="debtPerson"
-   placeholder="اسم الشخص"
-  >
-
-  <input
-   id="debtPhone"
-   placeholder="رقم الهاتف"
-   type="tel"
-  >
-
-  <select id="debtType">
-
-   <option value="owed">
-    💚 هو مدين لي
-   </option>
-
-   <option value="debt">
-    🔴 أنا مدين له
-   </option>
-
-  </select>
-
-  <input
-   id="debtAmount"
-   type="number"
-   min="0"
-   placeholder="مبلغ الدين"
-  >
-
-  <label>📅 تاريخ الدين</label>
-
-  <input
-   id="debtDate"
-   type="date"
-  >
-
-  <label>⏰ موعد الدفع</label>
-
-  <input
-   id="dueDate"
-   type="date"
-  >
-
-  <textarea
-   id="debtNote"
-   placeholder="ملاحظة..."
-  ></textarea>
-
-  <button
-   class="btn btn-primary"
-   onclick="addDebt()"
-  >
-   💾 حفظ الدين
-  </button>
-
- </div>
-
-</section>
+    </section>
 
 
-<!-- المعاملات -->
+    <!-- PEOPLE -->
 
-<section id="transactions" class="section">
+    <section id="people" class="section">
 
- <div class="card">
+        <div class="card">
 
-  <h2>🔄 آخر المعاملات</h2>
+            <h2>👥 الأشخاص</h2>
 
-  <div id="transactionsList"></div>
+            <input
+                id="peopleSearch"
+                class="search"
+                type="text"
+                placeholder="ابحث عن اسم أو رقم الهاتف..."
+                oninput="renderPeople()"
+            >
 
- </div>
+            <div id="peopleList"></div>
 
-</section>
+        </div>
+
+    </section>
 
 
-<!-- كشف الحساب -->
+    <!-- ADD DEBT -->
 
-<section id="profile" class="section">
+    <section id="add" class="section">
 
- <div class="card">
+        <div class="card">
 
-  <div id="profileContent"></div>
+            <h2>➕ إضافة دين</h2>
 
- </div>
+            <div class="form-group">
 
-</section>
+                <label>اسم الشخص</label>
+
+                <input
+                    id="personName"
+                    type="text"
+                    placeholder="مثال: محمد"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>رقم الهاتف</label>
+
+                <input
+                    id="personPhone"
+                    type="tel"
+                    placeholder="مثال: 0550000000"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>نوع الدين</label>
+
+                <div class="direction">
+
+                    <button
+                        id="owedBtn"
+                        class="selected"
+                        onclick="selectDirection('owed')">
+                        💚 لي عنده
+                    </button>
+
+                    <button
+                        id="debtBtn"
+                        onclick="selectDirection('debt')">
+                        🔴 عليّ له
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>المبلغ</label>
+
+                <input
+                    id="debtAmount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="0"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>تاريخ الدين</label>
+
+                <input
+                    id="debtDate"
+                    type="date"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>تاريخ الاستحقاق</label>
+
+                <input
+                    id="dueDate"
+                    type="date"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>ملاحظة</label>
+
+                <textarea
+                    id="debtNote"
+                    placeholder="مثال: مبلغ خاص بشراء سلعة..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary btn-full"
+                onclick="addDebt()">
+                💾 حفظ الدين
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRANSACTIONS -->
+
+    <section id="transactions" class="section">
+
+        <div class="card">
+
+            <h2>🔄 جميع المعاملات</h2>
+
+            <div id="transactionsList"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFILE -->
+
+    <section id="profile" class="section">
+
+        <div class="card">
+
+            <div id="profileContent"></div>
+
+        </div>
+
+    </section>
 
 </div>
 
 
 <script>
 
-let people=
- JSON.parse(
-  localStorage.getItem("hisabi_people")||"[]"
- );
+/* =========================
+   DATA
+========================= */
 
-let transactions=
- JSON.parse(
-  localStorage.getItem("hisabi_transactions")||"[]"
- );
+let people = [];
+let transactions = [];
 
+let selectedDirection = "owed";
+
+let currentPersonId = null;
+
+
+/* =========================
+   STORAGE
+========================= */
 
 function saveData(){
 
- localStorage.setItem(
-  "hisabi_people",
-  JSON.stringify(people)
- );
+    localStorage.setItem(
+        "hisabi_people",
+        JSON.stringify(people)
+    );
 
- localStorage.setItem(
-  "hisabi_transactions",
-  JSON.stringify(transactions)
- );
+    localStorage.setItem(
+        "hisabi_transactions",
+        JSON.stringify(transactions)
+    );
+}
 
+
+function loadData(){
+
+    try{
+
+        const savedPeople =
+            localStorage.getItem("hisabi_people");
+
+        const savedTransactions =
+            localStorage.getItem("hisabi_transactions");
+
+        people = savedPeople
+            ? JSON.parse(savedPeople)
+            : [];
+
+        transactions = savedTransactions
+            ? JSON.parse(savedTransactions)
+            : [];
+
+        if(!Array.isArray(people)){
+            people = [];
+        }
+
+        if(!Array.isArray(transactions)){
+            transactions = [];
+        }
+
+    }catch(error){
+
+        people = [];
+        transactions = [];
+
+        console.error(error);
+    }
+}
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function createId(){
+
+    return Date.now().toString(36) +
+           Math.random().toString(36).substring(2);
 }
 
 
 function money(value){
 
- return Number(value||0).toLocaleString("ar-DZ")
- +" دج";
+    return Number(value || 0).toLocaleString(
+        "ar-DZ",
+        {
+            maximumFractionDigits:2
+        }
+    ) + " دج";
+}
+
+
+function escapeHtml(text){
+
+    return String(text || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+function today(){
+
+    const d = new Date();
+
+    const year = d.getFullYear();
+
+    const month =
+        String(d.getMonth()+1).padStart(2,"0");
+
+    const day =
+        String(d.getDate()).padStart(2,"0");
+
+    return year + "-" + month + "-" + day;
+}
+
+
+function formatDate(date){
+
+    if(!date){
+        return "بدون تاريخ";
+    }
+
+    const parts = date.split("-");
+
+    if(parts.length !== 3){
+        return date;
+    }
+
+    return parts[2] + "/" +
+           parts[1] + "/" +
+           parts[0];
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showSection(sectionId){
+
+    document
+        .querySelectorAll(".section")
+        .forEach(function(section){
+
+            section.classList.remove("active");
+
+        });
+
+
+    const section =
+        document.getElementById(sectionId);
+
+    if(section){
+
+        section.classList.add("active");
+
+    }
+
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(function(button){
+
+            button.classList.remove("active");
+
+        });
+
+
+    if(sectionId === "home"){
+        document
+            .getElementById("navHome")
+            .classList.add("active");
+    }
+
+    if(sectionId === "people"){
+        document
+            .getElementById("navPeople")
+            .classList.add("active");
+    }
+
+    if(sectionId === "add"){
+        document
+            .getElementById("navAdd")
+            .classList.add("active");
+    }
+
+    if(sectionId === "transactions"){
+        document
+            .getElementById("navTransactions")
+            .classList.add("active");
+    }
+
+
+    if(sectionId === "home"){
+        renderHome();
+    }
+
+    if(sectionId === "people"){
+        renderPeople();
+    }
+
+    if(sectionId === "transactions"){
+        renderTransactions();
+    }
 
 }
 
 
-function escapeHtml(value){
+/* =========================
+   DIRECTION
+========================= */
 
- return String(value||"")
-  .replaceAll("&","&amp;")
-  .replaceAll("<","&lt;")
-  .replaceAll(">","&gt;")
-  .replaceAll('"',"&quot;")
-  .replaceAll("'","&#039;");
+function selectDirection(direction){
 
-}
+    selectedDirection = direction;
 
+    document
+        .getElementById("owedBtn")
+        .classList.remove("selected");
 
-function id(){
-
- return Date.now().toString(36)
- +""
- +Math.random().toString(36).slice(2,7);
-
-}
+    document
+        .getElementById("debtBtn")
+        .classList.remove("selected");
 
 
-function showSection(name,button){
+    if(direction === "owed"){
 
- document
-  .querySelectorAll(".section")
-  .forEach(s=>s.classList.remove("active"));
+        document
+            .getElementById("owedBtn")
+            .classList.add("selected");
 
- const section=
-  document.getElementById(name);
+    }else{
 
- if(section){
-  section.classList.add("active");
- }
+        document
+            .getElementById("debtBtn")
+            .classList.add("selected");
 
- document
-  .querySelectorAll("nav button")
-  .forEach(b=>b.classList.remove("active"));
-
- if(button){
-  button.classList.add("active");
- }
+    }
 
 }
 
+
+/* =========================
+   ADD DEBT
+========================= */
 
 function addDebt(){
 
- const name=
-  document.getElementById("debtPerson")
-  .value.trim();
+    const name =
+        document
+            .getElementById("personName")
+            .value
+            .trim();
 
- const phone=
-  document.getElementById("debtPhone")
-  .value.trim();
+    const phone =
+        document
+            .getElementById("personPhone")
+            .value
+            .trim();
 
- const type=
-  document.getElementById("debtType").value;
+    const amount =
+        Number(
+            document
+                .getElementById("debtAmount")
+                .value
+        );
 
- const amount=
-  Number(
-   document.getElementById("debtAmount").value||0
-  );
+    const date =
+        document
+            .getElementById("debtDate")
+            .value ||
+        today();
 
- const debtDate=
-  document.getElementById("debtDate").value;
+    const dueDate =
+        document
+            .getElementById("dueDate")
+            .value;
 
- const dueDate=
-  document.getElementById("dueDate").value;
-
- const note=
-  document.getElementById("debtNote")
-  .value.trim();
-
-
- if(!name){
-
-  alert("أدخل اسم الشخص");
-
-  return;
-
- }
-
-
- if(amount<=0){
-
-  alert("أدخل مبلغًا صحيحًا");
-
-  return;
-
- }
+    const note =
+        document
+            .getElementById("debtNote")
+            .value
+            .trim();
 
 
- let person=
-  people.find(
-   p=>
-    p.name===name &&
-    p.phone===phone
-  );
+    if(!name){
+
+        alert("من فضلك أدخل اسم الشخص.");
+
+        return;
+    }
 
 
- if(!person){
+    if(!amount || amount <= 0){
 
-  person={
-   id:id(),
-   name,
-   phone,
-   balance:0,
-   note:""
-  };
+        alert("من فضلك أدخل مبلغًا صحيحًا.");
 
-  people.push(person);
-
- }
+        return;
+    }
 
 
- if(type==="owed"){
+    let person =
+        people.find(function(p){
 
-  person.balance+=amount;
+            return p.name.trim().toLowerCase() ===
+                   name.toLowerCase();
 
- }else{
-
-  person.balance-=amount;
-
- }
+        });
 
 
- transactions.unshift({
+    if(!person){
 
-  id:id(),
+        person = {
 
-  personId:person.id,
+            id:createId(),
 
-  personName:person.name,
+            name:name,
 
-  type:"debt",
+            phone:phone,
 
-  direction:type,
+            balance:0,
 
-  amount,
+            note:""
 
-  date:debtDate||new Date().toISOString().slice(0,10),
+        };
 
-  dueDate,
+        people.push(person);
 
-  note
+    }else{
 
- });
+        if(phone){
+            person.phone = phone;
+        }
 
-
- saveData();
-
-
- document.getElementById("debtPerson").value="";
- document.getElementById("debtPhone").value="";
- document.getElementById("debtAmount").value="";
- document.getElementById("debtDate").value="";
- document.getElementById("dueDate").value="";
- document.getElementById("debtNote").value="";
+    }
 
 
- refresh();
+    if(selectedDirection === "owed"){
+
+        person.balance += amount;
+
+    }else{
+
+        person.balance -= amount;
+
+    }
 
 
- alert("✅ تم تسجيل الدين");
+    transactions.push({
+
+        id:createId(),
+
+        personId:person.id,
+
+        personName:person.name,
+
+        type:"debt",
+
+        direction:selectedDirection,
+
+        amount:amount,
+
+        date:date,
+
+        dueDate:dueDate,
+
+        note:note
+
+    });
 
 
- showSection("people");
+    saveData();
+
+    clearDebtForm();
+
+    refresh();
+
+    alert("✅ تم حفظ الدين بنجاح.");
+
+    showSection("people");
 
 }
 
+
+/* =========================
+   CLEAR FORM
+========================= */
+
+function clearDebtForm(){
+
+    document.getElementById("personName").value = "";
+
+    document.getElementById("personPhone").value = "";
+
+    document.getElementById("debtAmount").value = "";
+
+    document.getElementById("debtDate").value = today();
+
+    document.getElementById("dueDate").value = "";
+
+    document.getElementById("debtNote").value = "";
+
+    selectDirection("owed");
+
+}
+
+
+/* =========================
+   PEOPLE
+========================= */
 
 function renderPeople(){
 
- const box=
-  document.getElementById("peopleList");
+    const list =
+        document.getElementById("peopleList");
 
- const search=
-  (
-   document.getElementById("personSearch")
-   ?.value||""
-  )
-  .trim()
-  .toLowerCase();
-
-
- const list=
-  people.filter(
-   p=>
-    p.name.toLowerCase().includes(search)||
-    p.phone.includes(search)
-  );
+    const search =
+        document
+            .getElementById("peopleSearch")
+            .value
+            .trim()
+            .toLowerCase();
 
 
- if(!list.length){
+    let filtered = people.filter(function(person){
 
-  box.innerHTML=
-   `<div class="empty">
-     لا يوجد أشخاص
-    </div>`;
+        return person.name
+            .toLowerCase()
+            .includes(search)
 
-  return;
+            ||
 
- }
+            (person.phone || "")
+                .toLowerCase()
+                .includes(search);
 
-
- box.innerHTML=
-  list.map(p=>{
-
-   const positive=
-    Number(p.balance)>0;
-
-   return `
-
-    <div class="person">
-
-     <div class="person-head">
-
-      <div>
-
-       <div class="person-name">
-        👤 ${escapeHtml(p.name)}
-       </div>
-
-       ${
-        p.phone
-        ?`
-         <div class="muted">
-          📞 ${escapeHtml(p.phone)}
-         </div>
-        `
-        :""
-       }
-
-      </div>
-
-      <span class="${
-       positive
-       ?"badge badge-green"
-       :"badge badge-red"
-      }">
-
-       ${
-        positive
-        ?"له عندك؟"
-        :"عليه"
-       }
-
-      </span>
-
-     </div>
+    });
 
 
-     <div class="muted">
+    if(filtered.length === 0){
 
-      الرصيد:
+        list.innerHTML =
+            '<div class="empty">👥 لا يوجد أشخاص بعد</div>';
 
-      <strong>
-       ${money(Math.abs(p.balance))}
-      </strong>
-
-     </div>
+        return;
+    }
 
 
-     <div class="actions">
+    list.innerHTML = filtered.map(function(person){
 
-      <button
-       class="btn btn-primary"
-       onclick="openProfile('${p.id}')"
-      >
-       📄 كشف الحساب
-      </button>
+        let balanceText = "";
 
-      <button
-       class="btn btn-green"
-       onclick="payPerson('${p.id}')"
-      >
-       💵 تسجيل دفعة
-      </button>
+        let badge = "";
 
-     </div>
+        if(person.balance > 0){
 
-    </div>
+            balanceText =
+                "لك عنده " +
+                money(person.balance);
 
-   `;
+            badge =
+                '<span class="badge badge-green">💚 له عندك</span>';
 
-  }).join("");
+        }else if(person.balance < 0){
+
+            balanceText =
+                "عليك له " +
+                money(Math.abs(person.balance));
+
+            badge =
+                '<span class="badge badge-red">🔴 عليك له</span>';
+
+        }else{
+
+            balanceText =
+                "الحساب متساوي";
+
+            badge =
+                '<span class="badge badge-gray">✓ مسدد</span>';
+
+        }
+
+
+        return `
+
+        <div class="person">
+
+            <div class="person-top">
+
+                <div>
+
+                    <div class="person-name">
+                        ${escapeHtml(person.name)}
+                    </div>
+
+                    ${
+                        person.phone
+                        ?
+                        `<div class="person-phone">
+                            📞 ${escapeHtml(person.phone)}
+                        </div>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+                <div class="balance">
+                    ${escapeHtml(balanceText)}
+                </div>
+
+            </div>
+
+            ${badge}
+
+            <div class="btn-row" style="margin-top:12px">
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openProfile('${person.id}')">
+                    📄 كشف الحساب
+                </button>
+
+                <button
+                    class="btn btn-success"
+                    onclick="payPerson('${person.id}')">
+                    💰 تسجيل دفعة
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }).join("");
 
 }
 
+
+/* =========================
+   PROFILE
+========================= */
 
 function openProfile(personId){
 
- const person=
-  people.find(p=>p.id===personId);
-
- if(!person)return;
-
-
- const personTransactions=
-  transactions.filter(
-   t=>t.personId===personId
-  );
+    const person =
+        people.find(function(p){
+            return p.id === personId;
+        });
 
 
- document.getElementById("profileContent")
- .innerHTML=`
-
-  <h2>
-   👤 ${escapeHtml(person.name)}
-  </h2>
-
-  ${
-   person.phone
-   ?`
-    <div class="muted">
-     📞 ${escapeHtml(person.phone)}
-    </div>
-   `
-   :""
-  }
-
-  <hr>
-
-  <h3>
-   الرصيد الحالي:
-  </h3>
-
-  <div style="font-size:28px;font-weight:bold">
-
-   ${money(Math.abs(person.balance))}
-
-  </div>
-
-  <p>
-
-   ${
-    person.balance>0
-    ?"💚 هذا المبلغ له عندك"
-    :person.balance<0
-    ?"🔴 هذا المبلغ عليك له"
-    :"✅ الحساب مسدد"
-   }
-
-  </p>
-
-  <h3>
-   📋 سجل المعاملات
-  </h3>
-
-  ${
-   personTransactions.length
-   ?
-   personTransactions.map(t=>`
-
-    <div class="transaction">
-
-     <strong>
-
-      ${
-       t.type==="payment"
-       ?"💵 دفعة"
-       :"📝 دين"
-      }
-
-     </strong>
-
-     <div>
-      ${money(t.amount)}
-     </div>
-
-     <div class="muted">
-      ${escapeHtml(t.date||"")}
-     </div>
-
-     ${
-      t.note
-      ?`
-       <div class="muted">
-        📝 ${escapeHtml(t.note)}
-       </div>
-      `
-      :""
-     }
-
-    </div>
-
-   `).join("")
-   :
-   `<div class="empty">
-     لا توجد معاملات
-    </div>`
-  `;
+    if(!person){
+        return;
+    }
 
 
- showSection("profile");
+    currentPersonId = personId;
+
+
+    const personTransactions =
+        transactions
+            .filter(function(t){
+                return t.personId === personId;
+            })
+            .sort(function(a,b){
+
+                return new Date(b.date) -
+                       new Date(a.date);
+
+            });
+
+
+    let balanceHtml = "";
+
+
+    if(person.balance > 0){
+
+        balanceHtml = `
+            <div class="green"
+                 style="font-size:21px;font-weight:bold">
+                لك عند ${escapeHtml(person.name)}
+                ${money(person.balance)}
+            </div>
+        `;
+
+    }else if(person.balance < 0){
+
+        balanceHtml = `
+            <div class="red"
+                 style="font-size:21px;font-weight:bold">
+                عليك لـ ${escapeHtml(person.name)}
+                ${money(Math.abs(person.balance))}
+            </div>
+        `;
+
+    }else{
+
+        balanceHtml = `
+            <div class="green"
+                 style="font-size:21px;font-weight:bold">
+                ✓ الحساب مسدد
+            </div>
+        `;
+
+    }
+
+
+    let history = "";
+
+
+    if(personTransactions.length === 0){
+
+        history =
+            '<div class="empty">لا توجد معاملات</div>';
+
+    }else{
+
+        history =
+            personTransactions
+                .map(function(t){
+
+                    if(t.type === "payment"){
+
+                        return `
+
+                        <div class="transaction payment">
+
+                            <div class="transaction-title">
+                                💰 دفعة
+                                - ${money(t.amount)}
+                            </div>
+
+                            <div class="transaction-info">
+                                التاريخ: ${formatDate(t.date)}
+                            </div>
+
+                        </div>
+
+                        `;
+
+                    }
+
+
+                    const directionText =
+                        t.direction === "owed"
+                        ? "💚 لك عنده"
+                        : "🔴 عليك له";
+
+
+                    return `
+
+                    <div class="transaction debt">
+
+                        <div class="transaction-title">
+                            ${directionText}
+                            - ${money(t.amount)}
+                        </div>
+
+                        <div class="transaction-info">
+
+                            التاريخ:
+                            ${formatDate(t.date)}
+
+                            ${
+                                t.dueDate
+                                ?
+                                `<br>
+                                الاستحقاق:
+                                ${formatDate(t.dueDate)}`
+                                :
+                                ""
+                            }
+
+                            ${
+                                t.note
+                                ?
+                                `<br>
+                                الملاحظة:
+                                ${escapeHtml(t.note)}`
+                                :
+                                ""
+                            }
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                })
+                .join("");
+
+    }
+
+
+    document.getElementById("profileContent").innerHTML = `
+
+        <div class="profile-header">
+
+            <button
+                class="btn btn-secondary"
+                onclick="showSection('people')">
+                ← رجوع
+            </button>
+
+            <hr>
+
+            <h2>
+                👤 ${escapeHtml(person.name)}
+            </h2>
+
+            ${
+                person.phone
+                ?
+                `<div class="muted">
+                    📞 ${escapeHtml(person.phone)}
+                </div>`
+                :
+                ""
+            }
+
+            <div style="margin-top:14px">
+                ${balanceHtml}
+            </div>
+
+        </div>
+
+
+        <div class="btn-row"
+             style="margin-bottom:15px">
+
+            <button
+                class="btn btn-success"
+                onclick="payPerson('${person.id}')">
+                💰 تسجيل دفعة
+            </button>
+
+            <button
+                class="btn btn-primary"
+                onclick="addDebtForPerson('${person.id}')">
+                ➕ إضافة دين
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🔄 سجل المعاملات</h3>
+
+            ${history}
+
+        </div>
+
+    `;
+
+
+    showSection("profile");
 
 }
 
+
+/* =========================
+   PAYMENT
+========================= */
 
 function payPerson(personId){
 
- const person=
-  people.find(p=>p.id===personId);
-
- if(!person)return;
-
-
- const amount=
-  Number(
-   prompt(
-    "أدخل مبلغ الدفعة:"
-   )||0
-  );
+    const person =
+        people.find(function(p){
+            return p.id === personId;
+        });
 
 
- if(amount<=0)return;
+    if(!person){
+        return;
+    }
 
 
- if(person.balance>0){
+    if(person.balance === 0){
 
-  person.balance=
-   Math.max(
-    0,
-    person.balance-amount
-   );
+        alert("هذا الحساب مسدد بالفعل.");
 
- }else{
-
-  person.balance+=amount;
-
- }
+        return;
+    }
 
 
- transactions.unshift({
-
-  id:id(),
-
-  personId:person.id,
-
-  personName:person.name,
-
-  type:"payment",
-
-  amount,
-
-  date:new Date().toISOString(),
-
-  note:"دفعة"
-
- });
+    const maxAmount =
+        Math.abs(person.balance);
 
 
- saveData();
+    const value =
+        prompt(
+            "أدخل مبلغ الدفعة:\nالمتبقي: " +
+            money(maxAmount)
+        );
 
- refresh();
 
- openProfile(personId);
+    if(value === null){
+        return;
+    }
+
+
+    const amount =
+        Number(value);
+
+
+    if(!amount || amount <= 0){
+
+        alert("أدخل مبلغًا صحيحًا.");
+
+        return;
+    }
+
+
+    if(amount > maxAmount){
+
+        alert(
+            "المبلغ أكبر من المتبقي.\n\n" +
+            "المتبقي: " +
+            money(maxAmount)
+        );
+
+        return;
+    }
+
+
+    if(person.balance > 0){
+
+        person.balance -= amount;
+
+    }else{
+
+        person.balance += amount;
+
+    }
+
+
+    transactions.push({
+
+        id:createId(),
+
+        personId:person.id,
+
+        personName:person.name,
+
+        type:"payment",
+
+        amount:amount,
+
+        date:today(),
+
+        note:"دفعة"
+
+    });
+
+
+    saveData();
+
+    refresh();
+
+    alert("✅ تم تسجيل الدفعة.");
+
+    openProfile(person.id);
 
 }
 
+
+/* =========================
+   ADD DEBT FOR EXISTING PERSON
+========================= */
+
+function addDebtForPerson(personId){
+
+    const person =
+        people.find(function(p){
+            return p.id === personId;
+        });
+
+
+    if(!person){
+        return;
+    }
+
+
+    showSection("add");
+
+
+    document.getElementById("personName").value =
+        person.name;
+
+    document.getElementById("personPhone").value =
+        person.phone || "";
+
+}
+
+
+/* =========================
+   TRANSACTIONS
+========================= */
 
 function renderTransactions(){
 
- const box=
-  document.getElementById("transactionsList");
+    const list =
+        document.getElementById("transactionsList");
 
 
- if(!transactions.length){
+    const sorted =
+        [...transactions].sort(function(a,b){
 
-  box.innerHTML=
-   `<div class="empty">
-    لا توجد معاملات
-   </div>`;
+            return new Date(b.date) -
+                   new Date(a.date);
 
-  return;
-
- }
+        });
 
 
- box.innerHTML=
-  transactions
-  .slice(0,100)
-  .map(t=>`
+    if(sorted.length === 0){
 
-   <div class="transaction">
+        list.innerHTML =
+            '<div class="empty">🔄 لا توجد معاملات بعد</div>';
 
-    <strong>
+        return;
+    }
 
-     ${
-      t.type==="payment"
-      ?"💵 دفعة"
-      :"📝 دين"
-     }
 
-     — ${escapeHtml(t.personName)}
+    list.innerHTML =
+        sorted.map(function(t){
 
-    </strong>
+            if(t.type === "payment"){
 
-    <div>
-     ${money(t.amount)}
-    </div>
+                return `
 
-    <div class="muted">
-     ${escapeHtml(t.date||"")}
-    </div>
+                <div class="transaction payment">
 
-   </div>
+                    <div class="transaction-title">
+                        💰 دفعة -
+                        ${escapeHtml(t.personName)}
+                    </div>
 
-  `)
-  .join("");
+                    <div class="transaction-info">
+
+                        المبلغ:
+                        ${money(t.amount)}
+
+                        <br>
+
+                        التاريخ:
+                        ${formatDate(t.date)}
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }
+
+
+            const direction =
+                t.direction === "owed"
+                ? "💚 لي عنده"
+                : "🔴 عليّ له";
+
+
+            return `
+
+            <div class="transaction debt">
+
+                <div class="transaction-title">
+
+                    ${direction}
+                    -
+                    ${escapeHtml(t.personName)}
+
+                </div>
+
+                <div class="transaction-info">
+
+                    المبلغ:
+                    ${money(t.amount)}
+
+                    <br>
+
+                    التاريخ:
+                    ${formatDate(t.date)}
+
+                    ${
+                        t.dueDate
+                        ?
+                        `<br>
+                        الاستحقاق:
+                        ${formatDate(t.dueDate)}`
+                        :
+                        ""
+                    }
+
+                    ${
+                        t.note
+                        ?
+                        `<br>
+                        الملاحظة:
+                        ${escapeHtml(t.note)}`
+                        :
+                        ""
+                    }
+
+                </div>
+
+            </div>
+
+            `;
+
+        }).join("");
 
 }
 
+
+/* =========================
+   HOME
+========================= */
 
 function renderHome(){
 
- let owed=0;
- let debt=0;
+    let owed = 0;
+    let debt = 0;
 
 
- people.forEach(p=>{
+    people.forEach(function(person){
 
-  if(p.balance>0){
+        if(person.balance > 0){
 
-   owed+=p.balance;
+            owed += person.balance;
 
-  }else{
+        }else if(person.balance < 0){
 
-   debt+=Math.abs(p.balance);
+            debt += Math.abs(person.balance);
 
-  }
+        }
 
- });
-
-
- document.getElementById("totalOwed")
- .textContent=money(owed);
+    });
 
 
- document.getElementById("totalDebt")
- .textContent=money(debt);
+    document.getElementById("homeOwed").textContent =
+        money(owed);
 
 
- document.getElementById("peopleCount")
- .textContent=people.length;
+    document.getElementById("homeDebt").textContent =
+        money(debt);
 
 
- document.getElementById("openDebts")
- .textContent=
-  people.filter(
-   p=>Number(p.balance)!==0
-  ).length;
+    document.getElementById("homePeople").textContent =
+        people.length;
 
 
- const upcoming=
-  transactions
-  .filter(t=>t.dueDate)
-  .sort(
-   (a,b)=>
-    new Date(a.dueDate)-
-    new Date(b.dueDate)
-  )
-  .slice(0,5);
+    document.getElementById("homeTransactions").textContent =
+        transactions.length;
 
 
- const box=
-  document.getElementById("upcomingList");
-
-
- if(!upcoming.length){
-
-  box.innerHTML=
-   `<div class="empty">
-    لا توجد مواعيد مسجلة
-   </div>`;
-
-  return;
-
- }
-
-
- box.innerHTML=
-  upcoming.map(t=>`
-
-   <div class="transaction">
-
-    <strong>
-     👤 ${escapeHtml(t.personName)}
-    </strong>
-
-    <div>
-     ${money(t.amount)}
-    </div>
-
-    <div class="muted">
-     📅 ${escapeHtml(t.dueDate)}
-    </div>
-
-   </div>
-
-  `).join("");
+    renderUpcoming();
 
 }
 
+
+/* =========================
+   UPCOMING
+========================= */
+
+function renderUpcoming(){
+
+    const list =
+        document.getElementById("upcomingList");
+
+
+    const todayValue = today();
+
+
+    const upcoming =
+        transactions
+            .filter(function(t){
+
+                return t.type === "debt" &&
+                       t.dueDate &&
+                       t.dueDate >= todayValue;
+
+            })
+            .sort(function(a,b){
+
+                return new Date(a.dueDate) -
+                       new Date(b.dueDate);
+
+            })
+            .slice(0,10);
+
+
+    if(upcoming.length === 0){
+
+        list.innerHTML =
+            '<div class="empty">📅 لا توجد استحقاقات قادمة</div>';
+
+        return;
+    }
+
+
+    list.innerHTML =
+        upcoming.map(function(t){
+
+            const person =
+                people.find(function(p){
+                    return p.id === t.personId;
+                });
+
+
+            return `
+
+            <div class="transaction">
+
+                <div class="transaction-title">
+
+                    👤
+                    ${escapeHtml(t.personName)}
+
+                </div>
+
+                <div class="transaction-info">
+
+                    المبلغ:
+                    ${money(t.amount)}
+
+                    <br>
+
+                    الاستحقاق:
+                    ${formatDate(t.dueDate)}
+
+                </div>
+
+            </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================
+   REFRESH
+========================= */
 
 function refresh(){
 
- renderHome();
- renderPeople();
- renderTransactions();
+    renderHome();
+
+    renderPeople();
+
+    renderTransactions();
 
 }
 
 
-refresh();
+/* =========================
+   START APP
+========================= */
+
+function init(){
+
+    loadData();
+
+    document.getElementById("debtDate").value =
+        today();
+
+    refresh();
+
+}
+
+
+/* تشغيل التطبيق */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    init
+);
 
 </script>
 
